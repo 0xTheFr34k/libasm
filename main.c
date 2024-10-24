@@ -35,8 +35,8 @@ int main()
 	printf("%d\n",strcmp("b","e"));
 	*/
 
-	char *str= NULL;
-	printf("%s\n",ft_strdup("Hello"));
+	char *str= "Hello";
+	printf("%s\n",ft_strdup(str));
 	//printf("%s\n",strdup("Hello"));
     return 0;
 }

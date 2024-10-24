@@ -1,24 +1,37 @@
-NASM = nasm
+# Define variables
+NAME = libasm.a
+SRC = ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s
+OBJ = $(SRC:.s=.o)
+CC = nasm
+CFLAGS = -f elf64
 AR = ar
+ARFLAGS = rcs
 RM = rm -f
 
-LIBRARY = libasm.a
+# Default rule
+all: $(NAME)
 
-SRC = $(wildcard *.s)
-OBJ = $(SRC:.s=.o)
+# Create the library
+$(NAME): $(OBJ)
+	$(AR) $(ARFLAGS) $@ $^
 
-all: $(LIBRARY)
-	rm -rf main
-	gcc *.o main.c -o main
-
-$(LIBRARY): $(OBJ)
-	$(AR) rcs $@ $^
-
+# Compile .s files to .o files
 %.o: %.s
-	$(NASM) -f elf64 -o $@ $<
+	$(CC) $(CFLAGS) $< -o $@
 
+# Clean up object files
 clean:
-	$(RM) $(OBJ) $(LIBRARY) main
+	$(RM) $(OBJ)
 
-.PHONY: all clean
+# Clean up the library and object files
+fclean: clean
+	$(RM) $(NAME)
+
+# Rebuild everything
+re: fclean all
+
+main:
+	gcc main.c libasm.a -o main
+
+.PHONY: all clean fclean re
 
