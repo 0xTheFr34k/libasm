@@ -20,17 +20,24 @@ int main()
 	ft_write(1,buffer,6);
 	*/
 
-	/*
-	printf("%d\n",ft_strlen(""));
-	*/
+	
+	//printf("%d\n",ft_strlen("Hello"));
+	
 
-	/*
+	/*	
 	char dest[255];
 	printf("%s\n",ft_strcpy(dest,"Hello1"));
 	*/
+	
 
+	/*
 	printf("%d\n",ft_strcmp("b","e"));
 	printf("%d\n",strcmp("b","e"));
+	*/
+
+	char *str= NULL;
+	printf("%s\n",ft_strdup("Hello"));
+	//printf("%s\n",strdup("Hello"));
     return 0;
 }
 

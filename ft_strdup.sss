@@ -1,0 +1,22 @@
+global  ft_strdup
+
+extern ft_strcpy
+extern ft_strlen
+extern malloc
+
+ft_strdup:
+	mov r15, rdi
+	call ft_strlen
+	mov rdi, rax
+	call malloc wrt ..plt
+	test rax, rax
+	jz .done
+	mov rdi, rax
+	mov rsi, r15
+	call ft_strcpy
+.done:
+	ret
+
+section .note.GNU-stack
+	
+	

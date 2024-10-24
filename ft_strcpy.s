@@ -13,5 +13,5 @@ ft_strcpy:
 	mov BYTE[rdi + rax], 0
 	mov rax, rdi
 	ret
-
 section .note.GNU-stack
+
