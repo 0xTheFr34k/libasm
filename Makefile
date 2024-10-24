@@ -8,6 +8,8 @@ SRC = $(wildcard *.s)
 OBJ = $(SRC:.s=.o)
 
 all: $(LIBRARY)
+	rm -rf main
+	gcc *.o main.c -o main
 
 $(LIBRARY): $(OBJ)
 	$(AR) rcs $@ $^
@@ -17,8 +19,6 @@ $(LIBRARY): $(OBJ)
 
 clean:
 	$(RM) $(OBJ) $(LIBRARY) main
-main:
-	gcc $(OBJ) main.c -o main
 
 .PHONY: all clean
 
