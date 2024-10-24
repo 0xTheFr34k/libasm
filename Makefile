@@ -21,11 +21,11 @@ $(NAME): $(OBJ)
 
 # Clean up object files
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) main
 
 # Clean up the library and object files
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) main
 
 # Rebuild everything
 re: fclean all
